@@ -45,4 +45,11 @@ Build a UI to cover the following use cases:
 Our Backend Developer has kindly provided you a simple Phoenix server for you to test out your app.
 You can access it at: https://coverflex-exercise.fly.dev/
 
+# Frontend app:
+
+We provided you an empty React + Typescript boilerplate without additional dependencies so you can start coding right away. To start:
+- Clone this repo to your local machine;
+- Run `yarn` to install dependencies;
+- Start the development server with `yarn dev`
+
 Good Luck! 🙌
