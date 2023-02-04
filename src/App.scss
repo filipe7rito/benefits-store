@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+
+
+$custom-colours: (
+   royalorange: #FE7E73,
+   royalgray: #364858,
+   lightroyalorange: #F4F2F0,
+   ligthtroyalgray: #CDD1D5,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colours);
+
+
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.btn.disabled,
+.btn-royalorange,
+.btn-ligthtoyalgray,
+.btn-royalorange:hover,
+.btn-outline-royalorange:hover,
+.btn-royalorange:not(:disabled):not(.disabled):active,
+.btn-outline-royalorange:not(:disabled):not(.disabled):active {
+   color: #fff !important;
+}
+
+
+.login-form {
+   width: 19rem
+}
+
+.nav-link:hover {
+   color: map-get($custom-colours, 'royalorange') !important;
+}
+
+.spinner {
+   z-index: 2;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   margin: 1.5rem 0 0 1.5rem;
+   width: 2.5rem;
+   height: 2.5rem;
+   color: map-get($custom-colours, 'royalorange');
+   animation: spin 2s linear infinite;
+}
+
+.layout {
+   height: calc(100vh - 6.25rem);
+}
+
+.main-container {
+   overflow: auto;
+}
+
+.product-item {
+   border-radius: 2rem;
+   width: 20rem !important;
+   background-color: map-get($custom-colours, 'lightroyalorange');
+   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+
+.product-item:hover {
+   box-shadow: rgba(0, 0, 0, 0.34) 0px 3px 8px;
+   transition: box-shadow 0.3s ease-in-out;
+}
+
+.product-item-img {
+   width: 5rem;
+   height: 5rem;
+   align-self: flex-end;
+   margin-right: 1.5rem;
+}
+
+.cart-item {
+   background-color: map-get($custom-colours, 'lightroyalorange');
+}
+
+.cart-item-img {
+   width: 4rem;
+   height: 4rem;
+}
+
+.cart-button-mobile {
+   display: none !important;
+
+   @include media-breakpoint-down(sm) {
+      display: block !important;
+   }
+}
+
+.cart-button {
+   display: none !important;
+
+   @include media-breakpoint-up(sm) {
+      display: block !important;
+   }
+}
+
+.bi {
+   vertical-align: .12em;
+   width: 1em;
+   height: 1em;
+}
