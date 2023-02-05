@@ -84,7 +84,7 @@ describe('Store', () => {
     cy.findAllByTestId('remove-from-cart').eq(0).click();
   });
 
-  it.only('It should be able to checkout ', () => {
+  it('It should be able to checkout ', () => {
     cy.contains(/products/i).should('be.visible');
 
     cy.findByText(/netflix/i).should('be.visible');
