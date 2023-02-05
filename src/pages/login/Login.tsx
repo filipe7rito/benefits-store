@@ -75,7 +75,7 @@ export default function Login() {
                 aria-hidden="true"
               ></span>
             ) : (
-              <i className="bi-arrow-right ms-2"></i>
+              <i className="bi-arrow-right ms-"></i>
             )}
           </button>
         </form>
