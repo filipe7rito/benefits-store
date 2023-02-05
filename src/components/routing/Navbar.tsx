@@ -44,7 +44,9 @@ function Navbar() {
                 {formatCurrency(user!.balance)}
               </span>
 
-              <CartButton className="cart-button" />
+              <div data-testid="cart-button">
+                <CartButton className="cart-button" />
+              </div>
             </div>
           </Nav>
           <Nav>

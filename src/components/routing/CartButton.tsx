@@ -15,12 +15,7 @@ export default function CartButton({
     <Button
       variant="outline-royalorange"
       size={size}
-      className={`rounded-circle ${className}`}
-      style={{
-        position: 'relative',
-        width: '3rem',
-        height: '3rem',
-      }}
+      className={`rounded-circle ${className} position-relative`}
       onClick={openCart}
     >
       <i className="bi bi-cart-plus-fill"></i>

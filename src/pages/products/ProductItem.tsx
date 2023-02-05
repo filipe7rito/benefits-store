@@ -43,7 +43,7 @@ export default function ProductItem({
     if (hideActions) return <></>;
 
     return (
-      <div className="text-center">
+      <div className="text-center" data-testid="product-item">
         {isInCart ? (
           <Button variant="royalgray" onClick={handleRemoveFromCart}>
             <span>Remove from cart</span>

@@ -59,7 +59,12 @@ function ShoppingCart({ isOpen }: ShoppingCartProps) {
   };
 
   return (
-    <Offcanvas show={isOpen} onHide={closeCart} placement="end">
+    <Offcanvas
+      show={isOpen}
+      onHide={closeCart}
+      placement="end"
+      data-testid="shopping-cart"
+    >
       <Offcanvas.Header closeButton className="bg-royalblue">
         <Offcanvas.Title className="fw-bold">
           <i className="me-2 bi bi-cart4"></i>

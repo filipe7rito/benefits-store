@@ -28,6 +28,7 @@ export default function CartItem({ id, name, price }: Product) {
         </Card.Body>
       </Card>
       <Button
+        data-testid="remove-from-cart"
         size="sm"
         variant="outline-royalgray rounded-circle ms-1"
         onClick={handleRemoveFromCart}
