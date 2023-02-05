@@ -2,36 +2,43 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import api from '../api';
 import { Product } from '../api/products';
 
+type Status = 'idle' | 'loading' | 'error';
+
 type ProductsContextType = {
   products: Product[];
-  loading: boolean;
+  status: Status;
 };
 
 const defaultContext = {
   products: [] as Product[],
-  loading: false,
+  status: 'idle' as Status,
 };
 
 const ProductsContext = createContext<ProductsContextType>(defaultContext);
 
 const ProductsProvider = ({ children }: { children: React.ReactNode }) => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [status, setStatus] = useState<Status>('idle');
 
   const getProducts = async () => {
-    setLoading(true);
-    const products = await api.products.get();
+    try {
+      setStatus('loading');
 
-    setProducts(products);
+      const products = await api.products.get();
 
-    setLoading(false);
+      setProducts(products);
+
+      setStatus('idle');
+    } catch (e) {
+      setStatus('error');
+    }
   };
 
   useEffect(() => {
     getProducts();
   }, []);
 
-  const value = useMemo(() => ({ products, loading }), [products]);
+  const value = useMemo(() => ({ products, status }), [products]);
 
   return (
     <ProductsContext.Provider value={value}>

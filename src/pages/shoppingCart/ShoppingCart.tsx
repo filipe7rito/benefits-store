@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Button, Offcanvas, Stack } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import api from '../api';
-import { Product } from '../api/products';
-import { formattedPrice } from '../helpers/formatters';
-import { useAuth } from '../hooks/useAuth';
-import { useShoppingCart } from '../hooks/useShoppingCart';
+import api from '../../api';
+import { Product } from '../../api/products';
+import { formatCurrency } from '../../helpers/formatters';
+import { useAuth } from '../../hooks/useAuth';
+import { useShoppingCart } from '../../hooks/useShoppingCart';
 import CartItem from './CartItem';
 
 type ShoppingCartProps = {
@@ -22,6 +22,7 @@ function ShoppingCart({ isOpen }: ShoppingCartProps) {
 
   const hasItems = cartItems.length > 0;
 
+  // Refresh user data after order is submitted
   useEffect(() => {
     const refreshUser = async () => {
       await fetchUser();
@@ -92,7 +93,7 @@ function ShoppingCart({ isOpen }: ShoppingCartProps) {
       <div style={{ height: '8.5rem' }} className="d-flex justify-content-end">
         <div className="align-self-center m-4 w-100">
           <div className="ms-auto fw-bold fs-6 my-3">
-            Total: {formattedPrice(total)}
+            Total: {formatCurrency(total)}
           </div>
           {hasItems && (
             <Button

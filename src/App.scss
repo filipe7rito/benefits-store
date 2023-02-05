@@ -57,14 +57,16 @@ $theme-colors: map-merge($theme-colors, $custom-colours);
 }
 
 .product-item {
+
    border-radius: 2rem;
-   width: 20rem !important;
+   min-width: 20rem !important;
+      max-width: 21.5rem !important;
    background-color: map-get($custom-colours, 'lightroyalorange');
    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
 }
 
 .product-item:hover {
-   box-shadow: rgba(0, 0, 0, 0.34) 0px 3px 8px;
+   box-shadow: rgba(0, 0, 0, 0.34) 0px 0.2rem 0.5rem;
    transition: box-shadow 0.3s ease-in-out;
 }
 

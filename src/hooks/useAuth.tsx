@@ -31,6 +31,7 @@ const AuthProvider = () => {
   const isAuthenticated = !!userIdInStorage;
   const navigate = useNavigate();
 
+  // Fetch the user
   const fetchUser = async () => {
     try {
       setLoading(true);
@@ -45,6 +46,7 @@ const AuthProvider = () => {
     }
   };
 
+  // Fetch the user on mount if we have a user id in storage
   useEffect(() => {
     // If we have a user id in storage, fetch the user
     if (userIdInStorage) {

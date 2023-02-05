@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { toast, useToast } from 'react-toastify';
 import api from '../../api';
-import Logo from '../../components/Logo';
+import Logo from '../../components/layout/Logo';
 import { useAuth } from '../../hooks/useAuth';
 
 export default function Login() {
@@ -67,15 +67,15 @@ export default function Login() {
             </div>
           </div>
           <button type="submit" className="btn btn-royalorange w-100">
-            Continue{' '}
+            Continue
             {formState === 'loading' ? (
               <span
-                className="spinner-border spinner-border-sm"
+                className="spinner-border spinner-border-sm ms-2"
                 role="status"
                 aria-hidden="true"
               ></span>
             ) : (
-              <i className="bi bi-arrow-right"></i>
+              <i className="bi-arrow-right ms-2"></i>
             )}
           </button>
         </form>

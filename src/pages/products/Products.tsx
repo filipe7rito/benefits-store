@@ -1,30 +1,35 @@
 import { Navigate } from 'react-router-dom';
-import ProductItem from '../../components/ProductItem';
-import Spinner from '../../components/Spinner';
+import ProductItem from './ProductItem';
+import Spinner from '../../components/layout/Spinner';
 import { useAuth } from '../../hooks/useAuth';
 import { useProducts } from '../../hooks/useProducts';
+import { Product } from '../../api/products';
+import Error from '../../components/error/Error';
 
 export default function Products() {
   const { user } = useAuth();
-  const { products, loading } = useProducts();
+  const { products, status } = useProducts();
 
-  if (loading) {
+  if (status === 'loading') {
     return <Spinner />;
+  }
+
+  if (status === 'error') {
+    return <Error />;
   }
 
   return (
     <div>
       <h5 className="text-royalgray fw-bold">Products</h5>
       <div className="container">
-        <div className="row row-cols-auto justify-content-start">
-          {products.map((product) => {
-            debugger;
+        <div className="row row-cols-auto justify-content-evenly">
+          {products.map((product: Product) => {
             const isPurchased = user?.purchasedProducts.includes(product.id);
 
             return (
               <ProductItem
-                key={product.id}
                 {...product}
+                key={product.id}
                 isPurchased={!!isPurchased}
               />
             );

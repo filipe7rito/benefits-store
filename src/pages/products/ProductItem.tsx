@@ -1,9 +1,8 @@
-import React from 'react';
-import { Product } from '../api/products';
-import { formattedPrice } from '../helpers/formatters';
 import { Button, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { useShoppingCart } from '../hooks/useShoppingCart';
-import { getLogo } from '../helpers/logoUtils';
+import { Product } from '../../api/products';
+import { formatCurrency } from '../../helpers/formatters';
+import { getLogo } from '../../helpers/logoUtils';
+import { useShoppingCart } from '../../hooks/useShoppingCart';
 
 type Props = Product & {
   isPurchased?: boolean;
@@ -18,6 +17,8 @@ export default function ProductItem({
   hideActions,
 }: Props) {
   const { cartItems, dispatch } = useShoppingCart();
+
+  // Check if the product is already in the cart
   const isInCart = cartItems.some((item) => item.id === id);
 
   const handleAddToCart = () => {
@@ -45,7 +46,7 @@ export default function ProductItem({
       <div className="text-center">
         {isInCart ? (
           <Button variant="royalgray" onClick={handleRemoveFromCart}>
-            <span>Remove from cart</span>{' '}
+            <span>Remove from cart</span>
             <i className="ms-2 bi bi bi-cart-dash-fill"></i>
           </Button>
         ) : (
@@ -71,7 +72,7 @@ export default function ProductItem({
   };
 
   return (
-    <div key={id} className="col mt-3 flex-grow-1 d-flex flex-column">
+    <div key={id} className="col mt-3">
       <Card className="product-item">
         <Card.Img
           className="product-item-img"
@@ -81,7 +82,7 @@ export default function ProductItem({
         <Card.Body className="pt-0">
           <Card.Title className="text-royalgray">{name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted fw-bold">
-            {formattedPrice(price)}
+            {formatCurrency(price)}
           </Card.Subtitle>
           <Card.Text>Lorem ipsum dolor sit amet.</Card.Text>
           {renderActions()}

@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 import ProtectedRoute from './components/routing/ProtectedRoute';
-import SharedLayout from './components/routing/SharedLayout';
+import SharedLayout from './components/layout/SharedLayout';
 import { AuthProvider } from './hooks/useAuth';
 import Login from './pages/login/Login';
 import Orders from './pages/orders/Orders';

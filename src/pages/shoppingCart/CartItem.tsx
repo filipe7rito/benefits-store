@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { Product } from '../api/products';
-import { formattedPrice } from '../helpers/formatters';
-import { getLogo } from '../helpers/logoUtils';
-import { useShoppingCart } from '../hooks/useShoppingCart';
+import { Product } from '../../api/products';
+import { formatCurrency } from '../../helpers/formatters';
+import { getLogo } from '../../helpers/logoUtils';
+import { useShoppingCart } from '../../hooks/useShoppingCart';
 
 export default function CartItem({ id, name, price }: Product) {
   const { dispatch } = useShoppingCart();
@@ -22,7 +22,7 @@ export default function CartItem({ id, name, price }: Product) {
               {name}
             </h6>
             <Card.Subtitle className="mb-2 text-muted fw-bold">
-              {formattedPrice(price)}
+              {formatCurrency(price)}
             </Card.Subtitle>
           </div>
         </Card.Body>

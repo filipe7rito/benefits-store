@@ -1,18 +1,25 @@
 import { Navigate } from 'react-router-dom';
-import ProductItem from '../../components/ProductItem';
-import Spinner from '../../components/Spinner';
+import ProductItem from '../products/ProductItem';
+import Spinner from '../../components/layout/Spinner';
 import { useAuth } from '../../hooks/useAuth';
 import { useProducts } from '../../hooks/useProducts';
+import { Product } from '../../api/products';
+import Error from '../../components/error/Error';
 
 export default function Orders() {
   const { user } = useAuth();
-  const { products, loading } = useProducts();
+  const { products, status } = useProducts();
 
-  if (loading) {
+  if (status === 'loading') {
     return <Spinner />;
   }
 
-  const purchasedProducts = products.filter((product) => {
+  if (status === 'error') {
+    return <Error />;
+  }
+
+  // Filter products that the user has purchased
+  const purchasedProducts = products.filter((product: Product) => {
     return user?.purchasedProducts.includes(product.id);
   });
 
@@ -20,12 +27,12 @@ export default function Orders() {
     <div>
       <h5 className="text-royalgray fw-bold">My orders</h5>
       <div className="container">
-        <div className="row row-cols-auto ">
+        <div className="row row-cols-auto justify-content-evenly">
           {purchasedProducts.map((product) => {
             return (
               <ProductItem
-                key={product.id}
                 {...product}
+                key={product.id}
                 isPurchased
                 hideActions
               />

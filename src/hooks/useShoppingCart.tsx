@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { Product } from '../api/products';
-import ShoppingCart from '../components/ShoppingCart';
+import ShoppingCart from '../pages/shoppingCart/ShoppingCart';
 import useLocalStorage from './useLocalStorage';
 
 type State = Product[];
@@ -48,9 +48,7 @@ const cartReducer = (state: Product[], action: Action): State => {
       return newState;
     }
     case 'CLEAR_CART': {
-      debugger;
       localStorage.removeItem('cartItems');
-      debugger;
       return [];
     }
 

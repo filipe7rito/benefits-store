@@ -1,11 +1,9 @@
-import { useState } from 'react';
 import { Button, Container, Nav, Navbar as NavbarCs } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { formattedPrice } from '../../helpers/formatters';
+import { formatCurrency } from '../../helpers/formatters';
 import { useAuth } from '../../hooks/useAuth';
-import { useShoppingCart } from '../../hooks/useShoppingCart';
-import CartButton from '../CartButton';
-import Logo from '../Logo';
+import CartButton from './CartButton';
+import Logo from '../layout/Logo';
 
 function Navbar() {
   const { logout, user } = useAuth();
@@ -43,7 +41,7 @@ function Navbar() {
             <div className="d-flex align-items-baseline">
               <h6>Balance:</h6>
               <span className="text-royalgray ms-1 me-3">
-                {formattedPrice(user!.balance)}
+                {formatCurrency(user!.balance)}
               </span>
 
               <CartButton className="cart-button" />

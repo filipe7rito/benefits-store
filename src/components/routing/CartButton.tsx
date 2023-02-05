@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, ButtonProps } from 'react-bootstrap';
-import { useShoppingCart } from '../hooks/useShoppingCart';
+import { useShoppingCart } from '../../hooks/useShoppingCart';
 
 export default function CartButton({
   className,
