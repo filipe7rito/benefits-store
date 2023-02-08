@@ -50,7 +50,12 @@ function Navbar() {
             </div>
           </Nav>
           <Nav>
-            <Button size="sm" variant="outline-royalgray" onClick={logout}>
+            <Button
+              size="sm"
+              variant="outline-royalgray"
+              onClick={logout}
+              name="logout"
+            >
               Logout
             </Button>
           </Nav>
