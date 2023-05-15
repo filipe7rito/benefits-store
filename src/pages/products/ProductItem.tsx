@@ -72,7 +72,7 @@ export default function ProductItem({
   };
 
   return (
-    <div key={id} className="col mt-3">
+    <div key={id}>
       <Card className="product-item">
         <Card.Img
           className="product-item-img"

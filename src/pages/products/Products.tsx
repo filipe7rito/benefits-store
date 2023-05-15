@@ -22,7 +22,7 @@ export default function Products() {
     <div>
       <h5 className="text-royalgray fw-bold">Products</h5>
       <div className="container">
-        <div className="row row-cols-auto justify-content-evenly">
+        <div className="products-grid">
           {products.map((product: Product) => {
             const isPurchased = user?.purchasedProducts.includes(product.id);
 

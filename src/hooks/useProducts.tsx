@@ -9,9 +9,9 @@ type ProductsContextType = {
   status: Status;
 };
 
-const defaultContext = {
-  products: [] as Product[],
-  status: 'idle' as Status,
+const defaultContext: ProductsContextType = {
+  products: [],
+  status: 'idle',
 };
 
 const ProductsContext = createContext<ProductsContextType>(defaultContext);

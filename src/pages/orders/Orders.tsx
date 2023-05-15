@@ -27,7 +27,7 @@ export default function Orders() {
     <div>
       <h5 className="text-royalgray fw-bold">My orders</h5>
       <div className="container">
-        <div className="row row-cols-auto justify-content-evenly">
+        <div className="products-grid">
           {purchasedProducts.map((product) => {
             return (
               <ProductItem
